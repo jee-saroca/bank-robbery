@@ -11,6 +11,9 @@ Decision System (Limited by $):
 - Weapon/Tool
   _I'm really not sure how a weapon choice would play a role_
 
+First Decision: Town Bank, Bank of Chase Fargo, Federal Reserve
+    
+
 -- Robbing Phase --
 
 - Intimidation
@@ -21,6 +24,25 @@ Decision System (Limited by $):
 _How about every action takes a certain amount of time to complete? Ex: user has 15 min worth of moves, so intimidation takes 30 sec, lock picking takes 2 minutes_
 
 First Decision: Front Door (Loud), Back Door (Sneak)
+
+**FRONT DOOR**
+    
+    Bust through the door with partner
+    
+    Text choice: "EVERYONE PUT YOUR HANDS UP", "EVERYONE PUT YOUR HANDS DOWN", "GET ON THE GROUND"
+    
+    PARTNER: "THIS IS A ROBBERY"
+    
+    _Partner's intimidation stat calculation_
+    
+    Both of you go to the teller, pointing your guns.
+    
+    Action choice: Yell at the bank teller (intimidation), Break through the door (strength)
+        
+        **YELL at the bank teller**
+        
+
+
 
 Second Decision: 
 
