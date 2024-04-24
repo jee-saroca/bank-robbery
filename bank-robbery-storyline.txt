@@ -9,9 +9,13 @@ Decision System (Limited by $):
     strength and intimidation, intellect and sneak
     _maybe different decisions pop up with either partner_
 - Weapon/Tool
-  note: I'm really not sure how a weapon choice would play a role
+    note: I'm really not sure how a weapon choice would play a role
+    Bigger gun: +Intimidation
+    Roids: +Strength
+    Doohickey usb: +intellect
+    Noise Cancellation Boots: +sneak
 
-First Decision: Town Bank, Bank of Chase Fargo, Federal Reserve
+First Decision: Town Bank (100% Success Rate), Bank of Chase Fargo (75% Success Rate), Federal Reserve (50% Success Rate)
     
 
 -- Robbing Phase --
@@ -33,7 +37,16 @@ FRONT DOOR
     Both of you go to the teller, pointing your guns.
     Action choice: Yell at the bank teller (intimidation), Break through the door (strength)
         YELL at the bank teller
-        
+            PLAYER: "GIVE ME ALL THE MONEY"
+
+BACK DOOR
+    Sneak through the door with partner
+    *Partner's sneak stat calculation*
+    PARTNER: "Watch out for the cameras, let me disable them"
+    *Partner's intellect stat* 
+    PARTNER: "There's a password combination over here, help me solve it."
+    Game:
+        *Maybe we can make an array with different word combinations that someone has to unscramble*
 
 
 
