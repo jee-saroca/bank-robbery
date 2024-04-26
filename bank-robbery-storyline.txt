@@ -38,6 +38,30 @@ FRONT DOOR
     Action choice: Yell at the bank teller (intimidation), Break through the door (strength)
         YELL at the bank teller
             PLAYER: "GIVE ME ALL THE MONEY"
+            Bank Teller: Please...Don't shoot...The money is inside the vault. 
+            PLAYER: OPEN THE DOOR. NOW!!!!
+            Bank Teller: I won't open the door. I'm the only person with the key, so I won't open the door.
+    (Lock Pick Skilled Check)
+    *Player skilled check calculation*
+            Bank teller: OH GOD, NO.
+            PLAYER: NOW, LEAD THE WAY TO THE VAULT!
+    The player points his gun at the Bank Teller and follows him to the vault. 
+    They both arrived at the vault.
+            PLAYER: Ok then. What are you waiting for? OPEN IT!!!
+    *PLAYER intimidation stat calculation*
+            Bank Teller: Ok, Ok, Ok.
+    Player starting to lose patince.
+    Optional Choice: Hit the Bank Teller and tell him to go faster.(*PLAYER intimidation stat calculation*)
+            Bank Teller: Ok, there is open.
+            PLAYER: FINALLY! GET INSIDE AND STAY RIGHT THERE.
+    PLAYER takes out his bag and collects money from the vault.
+    Optional Choice: Shoot the Bank teller.
+            PLAYER: OK, Got the dough. Lets go. 
+            Partner: Got it. Let's go to the back door.
+            PLAYER: Ok, meet you there. 
+
+            
+    
 
 BACK DOOR
     Sneak through the door with partner
