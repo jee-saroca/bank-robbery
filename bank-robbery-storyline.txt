@@ -4,7 +4,7 @@ Decision System (Limited by $):
 - Bank
     Amount of $/points possible
 - Getaway car and driver 
-    Car stats system: speed and durability
+    Car stats system: speed (Cheetah) and durability (Rhino)
 - Partner 
     strength and intimidation, intellect and sneak
     _maybe different decisions pop up with either partner_
@@ -16,6 +16,9 @@ Decision System (Limited by $):
     Noise Cancellation Boots: +sneak
 
 First Decision: Town Bank (100% Success Rate), Bank of Chase Fargo (75% Success Rate), Federal Reserve (50% Success Rate)
+Second Decision: Nerd Partner, Brute Partner
+Third Decision: Bigger Gun, Roids, Doohickey USB, Noise cancellation Boots
+Fourth Decision: 'Cheetah' Car, 'Rhino' Car, 
     
 
 -- Robbing Phase --
