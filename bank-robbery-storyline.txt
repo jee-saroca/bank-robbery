@@ -39,7 +39,7 @@ FRONT DOOR
     *Partner's intimidation stat calculation*
     Both of you go to the teller, pointing your guns.
     Action choice: Yell at the bank teller (intimidation), Break through the door (strength)
-        YELL at the bank teller
+        (YELL at the bank teller)
             PLAYER: "GIVE ME ALL THE MONEY"
             Bank Teller: Please...Don't shoot...The money is inside the vault. 
             PLAYER: OPEN THE DOOR. NOW!!!!
@@ -62,6 +62,25 @@ FRONT DOOR
             PLAYER: OK, Got the dough. Lets go. 
             Partner: Got it. Let's go to the back door.
             PLAYER: Ok, meet you there. 
+
+        (Break through the door)
+    PLAYER kick the door open and heads towards the Bank Teller pointing his gun at him.
+            PLAYER: WHERE IS THE MONEY!!!
+            Bank teller: (Stuttering) In there. (Pointing at the vault).
+            PLAYER: OK THEN. (Picks up the Bank Teller) GO WHERE MY PARTNER IS AT AND SHUT UP!!!
+            Partner: GET OVER HERE AND LAY THERE AND SHUT YOUR DAMN TRAP!!!
+    PLAYER heads towards door, struggles to open the door.
+        (Lock Pick Skilled Check)
+    *PLAYER skilled check calculation*
+    PLAYER successfully lock pick the lock and head towards the vault.
+            PLAYER: I see the vault, but I need a code to open it. Hey, tell the Bank Teller what's the code for the vault.
+            Partner: (Points the gun at the Bank Teller). TELL ME THE CODE FOR THE VAULT!!!!
+            Bank Teller: Ok...OK...OK... It's the Constent famous number.
+            Partner: WHAT THE HELL IS CONSTENT NUMBER?!?!?!
+            Bank Teller: Is a famous number that...
+            Partner: WHO GIVES A DAMN!!! TELL ME THE CODE!!!!
+    *Partner's intimidation calculation*
+            Bank Teller: 
 
             
     
