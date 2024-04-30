@@ -90,12 +90,24 @@ BACK DOOR
     *Partner's sneak stat calculation*
     PARTNER: "Watch out for the cameras, let me disable them"
     *Partner's intellect stat* 
-    PARTNER: "There's a password combination over here, help me solve it."
+    PARTNER: "We have to hack in, help me solve it."
     Game:
         *Maybe we can make an array with different word combinations that someone has to unscramble*
+    PARTNER: nice. let's go. it's up ahead.
+    You and your partner go up to the vault door.
+    PARTNER: Let me see if I can get a code for the vault.
+    Game:
+        *Number-based math questions?* (if player took Doohickey usb, math questions are easier)
+    PARTNER: We cracked it! Get the bags. We don't have much time until their cameras come back on, let's go.
+    PARTNER: 
 
-
-
-Second Decision: 
+    Second Decision: Leave through vents (sneak), Leave back where you came from (intelligence)
+    
+    VENTS
+        PARTNER: alright! shhh.
+    BACK WHERE
+        PARTNER: Alright! Let's get out of here. 
+        
+        
 
 -- Getaway Phase --
