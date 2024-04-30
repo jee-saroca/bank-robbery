@@ -1,7 +1,7 @@
 -- Planning Phase --
 
-Decision System (Limited by $):
-- Bank
+Decision System:
+- Bank -- We're changing this
     Amount of $/points possible
 - Getaway car and driver 
     Car stats system: speed (Cheetah) and durability (Rhino)
@@ -63,7 +63,7 @@ FRONT DOOR
             Partner: Got it. Let's go to the back door.
             PLAYER: Ok, meet you there. 
 
-        (Break through the door)
+        (BREAK through the door)
     PLAYER kick the door open and heads towards the Bank Teller pointing his gun at him.
             PLAYER: WHERE IS THE MONEY!!!
             Bank teller: (Stuttering) In there. (Pointing at the vault).
@@ -89,25 +89,74 @@ BACK DOOR
     Sneak through the door with partner
     *Partner's sneak stat calculation*
     PARTNER: "Watch out for the cameras, let me disable them"
-    *Partner's intellect stat* 
-    PARTNER: "We have to hack in, help me solve it."
-    Game:
-        *Maybe we can make an array with different word combinations that someone has to unscramble*
-    PARTNER: nice. let's go. it's up ahead.
-    You and your partner go up to the vault door.
-    PARTNER: Let me see if I can get a code for the vault.
     Game:
         *Number-based math questions?* (if player took Doohickey usb, math questions are easier)
-    PARTNER: We cracked it! Get the bags. We don't have much time until their cameras come back on, let's go.
-    PARTNER: 
+    PARTNER: "We cracked it! Get the bags. We don't have much time until their cameras come back on, let's go."
+    Both of you make it to the vault door and your partner unlocks it.
+    PARTNER: "grab some money."
 
-    Second Decision: Leave through vents (sneak), Leave back where you came from (intelligence)
+    Second Decision: Leave through vents (sneak), Leave back up the stairs (intelligence)
     
-    VENTS
-        PARTNER: alright! shhh.
-    BACK WHERE
-        PARTNER: Alright! Let's get out of here. 
-        
-        
+    VENTS (-1% money)
+        PARTNER: "alright! shhh."
+        PARTNER: "in here."
+        *Sneak skill check*
+        PARTNER: "let's get to the roof."
+        Before you guys make it to the roof, you hear
+        GUARD: "HEY! SOMEONE BROKE IN!"
+        Your partner's eyes begin to widen.
+        PARTNER: c'mon
+        You make it to the roof. 
+        PARTNER: Where do we go now?
+        Third Decision: Jump into some bushes up front, Climb the ladder on the side
+            JUMP UP FRONT (-10% money)
+                You notify your getaway driver.
+                PARTNER: "Alright then, here we go."
+                Both of you guys jump off and land in the bushes.
+                PARTNER: "AHHH"
+                PARTNER: "I think I injured my leg."
+                You help your partner into the front seat of the car.
+                As you do so, you hear:
+                "HEY STOP RIGHT THERE!"
+                You climb into the car, and escape by a hair.
+            CLIMB DOWN SIDE (-0% money)
+                You notify your getaway driver.
+                PARTNER: I'm going to climb down.
+                You follow your partner and successfully escape when you hear police sirens in the distance.
+                
+    STAIRS (-0% money)
+        PARTNER: "Alright! Let's get out of here."
+        Before you take a step outside the vault, your partner stops you
+        PARTNER: "Hold it. Let me check something"
+        He whips out his tablet.
+        PARTNER: "They activated their silent alarm"
+        *Partner's intellect stat* -- the better the intelligence, the easier the code.
+        PARTNER: "We have to hack in, help me solve it."
+        Game:
+            *Maybe we can make an array with different word combinations that someone has to unscramble*
+        PARTNER: "Nice! Let's get out of here"
+        Both of you make it out the back door of the building.
+        "Hey what are you two doing here"
+        You turn around to see two guards looking at you from the door.
 
+    Third Decision: Shoot the guards, Talk with the guards
+
+        SHOOT (-3% money)
+            Game:
+                *Aim Skill check*
+            You hit one of the guards, but your partner misses
+            PARTNER: RUN!
+            
+        TALK (-0% money)
+            PARTNER: "We're not from here. We got lost."
+            GUARD 1: "Ah, well did you see anyone come out here."
+            PARTNER: "Nah, we just got here."
+            The guards look at each other, then look back at you.
+            GUARD 2: "Hey so what do you have in those bags."
+            Your partner immediately shoots one of the guards.
+            PARTNER: RUN!
+
+        PARTNER: THERE'S THE CAR!
+        You book it to the backseat. While your partner takes the front seat.
+        
 -- Getaway Phase --
