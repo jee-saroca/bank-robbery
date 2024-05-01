@@ -60,7 +60,8 @@ FRONT DOOR
     Optional Choice: Shoot the Bank teller.
             PLAYER: OK, Got the dough. Lets go. 
             Partner: Got it. Let's go to the back door.
-            PLAYER: Ok, meet you there. 
+            PLAYER: Ok, meet you there.
+    PLAYER meets up with PARTNER to the back door.
 
         (BREAK through the door)
     PLAYER kick the door open and heads towards the Bank Teller pointing his gun at him.
