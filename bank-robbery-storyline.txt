@@ -1,11 +1,11 @@
 -- Planning Phase --
 
 Decision System:
-- Bank -- We're changing this
+- Bank /* SCRAPPING BANK OPTIONS */
     Amount of $/points possible
-- Getaway car and driver 
+- Getaway car and driver /* SCRAPPING CAR OPTIONS */
     Car stats system: speed (Cheetah) and durability (Rhino)
-- Partner 
+- Partner
     strength and intimidation, intellect and sneak
     _maybe different decisions pop up with either partner_
 - Weapon/Tool
@@ -15,10 +15,9 @@ Decision System:
     Doohickey usb: +intellect
     Noise Cancellation Boots: +sneak
 
-First Decision: Town Bank (100% Success Rate), Bank of Chase Fargo (75% Success Rate), Federal Reserve (50% Success Rate)
-Second Decision: Nerd Partner, Brute Partner
-Third Decision: Bigger Gun, Roids, Doohickey USB, Noise cancellation Boots
-Fourth Decision: 'Cheetah' Car, 'Rhino' Car, 
+
+First Decision: Nerd Partner, Brute Partner, Sly Partner, Menace Partner
+Second Decision: Bigger Gun, Roids, Doohickey USB, Noise cancellation Boots
     
 
 -- Robbing Phase --
@@ -159,4 +158,4 @@ BACK DOOR
         PARTNER: THERE'S THE CAR!
         You book it to the backseat. While your partner takes the front seat.
         
--- Getaway Phase --
+-- Getaway Phase -- NOTE: SCRAPPING GETAWAY PHASE, IT GOT TOO LONG
