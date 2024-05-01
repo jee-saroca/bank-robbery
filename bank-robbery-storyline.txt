@@ -66,24 +66,31 @@ FRONT DOOR
     PLAYER kick the door open and heads towards the Bank Teller pointing his gun at him.
             PLAYER: WHERE IS THE MONEY!!!
             Bank teller: (Stuttering) In there. (Pointing at the vault).
-            PLAYER: OK THEN. (Picks up the Bank Teller) GO WHERE MY PARTNER IS AT AND SHUT UP!!!
-            Partner: GET OVER HERE AND LAY THERE AND SHUT YOUR DAMN TRAP!!!
-    PLAYER heads towards door, struggles to open the door.
-        (Lock Pick Skilled Check)
-    *PLAYER skilled check calculation*
-    PLAYER successfully lock pick the lock and head towards the vault.
-            PLAYER: I see the vault, but I need a code to open it. Hey, tell the Bank Teller what's the code for the vault.
-            Partner: (Points the gun at the Bank Teller). TELL ME THE CODE FOR THE VAULT!!!!
-            Bank Teller: Ok...OK...OK... It's the Constent famous number.
-            Partner: WHAT THE HELL IS CONSTENT NUMBER?!?!?!
-            Bank Teller: Is a famous number that...
-            Partner: WHO GIVES A DAMN!!! TELL ME THE CODE!!!!
-    *Partner's intimidation calculation*
-            Bank Teller: 
-
+            PLAYER: OK THEN. (Picks up the Bank Teller) LET'S GO THEN!!!!
+    PLAYER and the Bank Teller head towards a lock door.
+            PLAYER: OPEN THE DOOR NOW!!!!!
+            Bank Teller: I don't have the key for that. The manager does and he's not here.
+            PLAYER: DAMN!!!! OK LET'S SEE IF I COULD LOK PICK THIS THEN!!!!
+    (Lock Pick Skilled Check)
+    *PLAYER skilled check calculations*
+            PLAYER: Ok, let's get a move on buddy.
+    PLAYER and the Bank Teller head towards the vault.
+            PLAYER: OK, WHAT'S THE CODE FOR THE VAULT!!!!
+            Bank Teller: Is, 6-4-2. That's the code for the vault.
+    (Time Skilled Check for putting the code)
+    *PLAYER skilled check calculations*
+    PLAYER and the Bank Teller walk inside the vault. PLAYER collects the money from the vault. 
+            PLAYER: OK, LET'S GO WITH MY PARTNER!!!!
+    PLAYER and the Bank Teller walk towards PLAYER's partner.
+            PARTNER: (Points the gun at the Bank Teller) YOU LAY THERE AND SHUT YOUR MOUTH!!!
+            PLAYER: OK, GOT THE DOUGH!!!! NOW LETS GET THE HELL OUTTA HERE!!!!
+            PARTNER: GOOD LETS TAKE THE BACK DOOR BEFORE THE COPS COME!!!!
+            PLAYER: Good call. Let's go.
+    PLAYER and PARTNER goes to the back door. 
             
+            
+        
     
-
 BACK DOOR
     Sneak through the door with partner
     *Partner's sneak stat calculation*
