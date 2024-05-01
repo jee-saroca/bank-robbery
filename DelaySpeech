@@ -1,6 +1,6 @@
 // The goal is to make a method to delay speech to give user time to read.
 public class DelaySpeech {
-	public static void main(String[] args) {
+	public static void main(String[] args) { // This method needs to return an int
 		int duration = 4000;
 		try {
 			Thread.sleep(duration); //duration measured in milliseconds
