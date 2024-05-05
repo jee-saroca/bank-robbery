@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class StairsPractice {
+public class StairsOptionGame {
     public static void main(String[] args) {
         Scanner charReader = new Scanner(System.in);
         
@@ -193,8 +193,4 @@ public class StairsOptionGame {
 
 
 
-            *Maybe we can make an array with different word combinations that someone has to unscramble*
-        PARTNER: "Nice! Let's get out of here"
-        Both of you make it out the back door of the building.
-        "Hey what are you two doing here"
-        You turn around to see two guards looking at you from the door. */
+           
