@@ -1,6 +1,11 @@
 import java.util.Scanner;
 public class BankRobberyGame {
 	public static void main(String[] args) {
+		// STATS
+		int intellect = 0;
+		int strength = 0;
+		int sneak = 0;
+		int intimidate = 0;
 		Scanner charReader = new Scanner(System.in);
 		
 		// INTRODUCTION
@@ -21,13 +26,29 @@ public class BankRobberyGame {
 		
 		switch(Character.toUpperCase(inputPartnerChoice)) {
 			case 'A':
-				partnerName = "Nerd"; break;
+				partnerName = "Nerd"; 
+				intellect += 4;
+				sneak += 2;
+				strength += 1;
+				break;
 			case 'B':
-				partnerName = "Brute"; break;
+				partnerName = "Brute"; 
+				strength += 4;
+				intimidate += 2;
+				sneak += 1;
+				break;
 			case 'C':
-				partnerName = "Sly"; break;
+				partnerName = "Sly"; 
+				sneak += 4;
+				intellect += 2;
+				intimidate += 1;
+				break;
 			case 'D':
-				partnerName = "Menace"; break;
+				partnerName = "Menace"; 
+				intimidate += 4;
+				strength += 2;
+				intellect += 1;
+				break;
 			default:
 				partnerName = "Error, this should never happen";
 		}
@@ -45,19 +66,29 @@ public class BankRobberyGame {
 		
 		switch(Character.toUpperCase(inputToolChoice)) {
 			case 'A':
-				toolName = "Doohickey USB"; break;
+				toolName = "Doohickey USB"; 
+				intellect += 2; break;
 			case 'B':
-				toolName = "Steroids"; break;
+				toolName = "Steroids"; 
+				strength += 2; break;
 			case 'C':
-				toolName = "Noise-Cancellation Boots"; break;
+				toolName = "Noise-Cancellation Boots"; 
+				sneak += 2; break;
 			case 'D':
-				toolName = "Bigger Gun"; break;
+				toolName = "Bigger Gun"; 
+				intimidate += 2; break;
 			default:
 				toolName = "Error, this should never happen";
 		}
 		
 		System.out.println("DRIVER: Nice choice, the " + toolName + " will be useful.");
 		charReader.close(); // not necessary for this project bc it's so small, but good practice
+
+		System.out.println("intelligence is " + intellect); // debug code
+		System.out.println("Strength is " + strength); // debug code
+		System.out.println("sneak is " + sneak); // debug code
+		System.out.println("intimidate is " + intimidate); // debug code
+		
 	}
 	
 	public static void delaySpeech(int duration) { // This needs to return int
