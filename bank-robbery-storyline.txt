@@ -98,6 +98,7 @@ BACK DOOR
     Sneak through the door with partner
     *Partner's sneak stat calculation*
     PARTNER: "Watch out for the cameras, let me disable them"
+    PARTNER: Try picking the lock.
     Game:
         *Number-based math questions?* (if player took Doohickey usb, math questions are easier)
     PARTNER: "We cracked it! Get the bags. We don't have much time until their cameras come back on, let's go."
