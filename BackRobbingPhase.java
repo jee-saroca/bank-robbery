@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class BackDoorRobbery {
+public class BackRobbingPhase {
 	public static void main(String[] args) {
 		Scanner charReader = new Scanner(System.in);
 		// STATS
