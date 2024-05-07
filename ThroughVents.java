@@ -38,10 +38,10 @@ public class ThroughVents {
         System.out.println("PARTNER: Where do we go now?");
 		//delaySpeech(3);
 		System.out.println("You can run up front to jump off the roof into some bushes, or climb down the side.");
-		char inputEntranceChoice = charReader.next().charAt(0);
-		if (Character.toUpperCase(inputEntranceChoice) == 'A') {
+		char inputRoofChoice = charReader.next().charAt(0);
+		if (Character.toUpperCase(inputRoofChoice) == 'A') {
 			System.out.println("You chose to jump off the front of the building");
-		} else if (Character.toUpperCase(inputEntranceChoice) == 'B') {
+		} else if (Character.toUpperCase(inputRoofChoice) == 'B') {
 			System.out.println("You chose to climb down the side of the building");
 		}
 		// This would transition to either to jump down in the front or climb down side decision
