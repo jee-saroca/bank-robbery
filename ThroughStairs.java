@@ -33,7 +33,9 @@ public class ThroughStairs {
         System.out.println("Hey what are you two doing here");
 		//delaySpeech(2);
         System.out.println("You turn around to see two guards looking at you from the door.");
-		//delaySpeech(3);
+		//delaySpeech(0.5);
+		System.out.println("You quickly have to decide whether you will:"
+						  + "\nA. Shoot at them\nB. Talk with them");
 		char inputOutsideChoice = charReader.next().charAt(0);
 		if (Character.toUpperCase(inputOutsideChoice) == 'A') {
 			System.out.println("You chose to shoot the guard.");
