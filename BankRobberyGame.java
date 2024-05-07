@@ -55,9 +55,9 @@ public class BankRobberyGame {
 		delaySpeech(1);
 		System.out.println("DRIVER: Really? You chose the... " + partnerName + "?");
 		delaySpeech(2);
-		
+		System.out.println("DRIVER: ... Alright then, what tool do we need?");
 		// TOOL CHOICE
-		System.out.println("Type the letter of which partner you want to bring\nA. Doohickey USB\n" +
+		System.out.println("Type the letter of which tool you want to bring\nA. Doohickey USB\n" +
 						  "B. Steroids\nC. Noise-Cancellation Boots\nD. Bigger Gun");
 		
 		String toolName;
@@ -82,16 +82,28 @@ public class BankRobberyGame {
 		}
 		
 		System.out.println("DRIVER: Nice choice, the " + toolName + " will be useful.");
-		charReader.close(); // not necessary for this project bc it's so small, but good practice
 
 		System.out.println("intelligence is " + intellect); // debug code
 		System.out.println("Strength is " + strength); // debug code
 		System.out.println("sneak is " + sneak); // debug code
 		System.out.println("intimidate is " + intimidate); // debug code
-		
+
+		System.out.println("Your driver takes you to the bank.");
+		delaySpeech(3);
+		System.out.println("You stake out the place to look for an opening.");
+		delaySpeech(4);
+		System.out.println("You think in your head that you can enter through " 
+						   + "the:\nA. Front Door\nB. Back Door");
+		char inputEntranceChoice = charReader.next().charAt(0);
+		if (Character.toUpperCase(inputEntranceChoice) == 'A') {
+			System.out.println("You chose to go through the Front Door");
+		} else if (Character.toUpperCase(inputEntranceChoice) == 'B') {
+			System.out.println("You chose to go through the Back Door");
+		}
+		charReader.close(); // not necessary for this project bc it's so small, but good practice
 	}
 	
-	public static void delaySpeech(int duration) { // This needs to return int
+		public static void delaySpeech(int duration) { // This needs to int
 		try {
 			Thread.sleep(duration * 1000); // sleep uses milliseconds, so converts seconds to milli-
 		}
