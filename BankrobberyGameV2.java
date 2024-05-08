@@ -659,10 +659,10 @@ public class BankRobberyGameV2 {
             System.out.println(wordHidden);
             
             // Difficulty adjustment if user has high intellect stats
-            if (intellect == 4) {
+            if (intellect >= 7) {
                 addedTries += 2;
                 revealCharacters(wordHidden, randomWord, addedTries);
-            } else if (intellect == 2) {
+            } else if (intellect >= 2 && intellect >= 6) {
                 addedTries += 1;
             } else {
                 delaySpeech((long)1.25);
