@@ -58,6 +58,7 @@ public class BankRobberyGame {
 				sneak += 2;
 				strength += 1;
 				System.out.println("You didn't choose a possible option, so you're stuck with the Nerd.");
+				delaySpeech(3);
 		}
 		delaySpeech(1);
 		System.out.println("DRIVER: Really? You chose the... " + partnerName + "?");
@@ -88,16 +89,17 @@ public class BankRobberyGame {
 				toolName = "Steroids";
 				strength += 2;
 				System.out.println("You didn't choose a possible option, so you're stuck with Steroids.");
+				delaySpeech(3);
 		}
 		
 		System.out.println("DRIVER: Nice choice, the " + toolName + " will be useful.");
 
-		System.out.println("intelligence is " + intellect); // debug code
-		System.out.println("Strength is " + strength); // debug code
-		System.out.println("sneak is " + sneak); // debug code
-		System.out.println("intimidate is " + intimidate); // debug code
-
-		System.out.println("Your driver takes you to the bank.");
+//		System.out.println("intelligence is " + intellect); // debug code
+//		System.out.println("Strength is " + strength); // debug code
+//		System.out.println("sneak is " + sneak); // debug code
+//		System.out.println("intimidate is " + intimidate); // debug code
+		delaySpeech(2);
+		System.out.println("\nYour driver takes you to the bank.");
 		delaySpeech(3);
 		System.out.println("You stake out the place to look for an opening.");
 		delaySpeech(4);
@@ -117,7 +119,7 @@ public class BankRobberyGame {
 		
 		System.out.println("YOU STOLE $" + money + "!");
 		if (money > 0)
-		System.out.println("YOU'RE A SEASONED CRIMINAL CONGRATS!");
+		System.out.println("CONGRATS!");
 	}
 	
 	public static void delaySpeech(long duration) { // This needs to long
@@ -133,11 +135,11 @@ public class BankRobberyGame {
 	public static boolean statCheckCalculator(int multiplier, double percent) {
 		double successChance = multiplier * percent; // success is based on the skill multiplier and base chance of working
 		
-		System.out.println(successChance);
+		//System.out.println(successChance); // debug code
 		
 		double randomNum = Math.random();
 		
-		System.out.println(randomNum);
+		// System.out.println(randomNum); // debug code
 		
 		return (randomNum < successChance); // if the randomNum 0-99 is less than successChance, the skill check passes true
 	}
@@ -146,7 +148,7 @@ public class BankRobberyGame {
 	public static double frontDoorRobbery(String partnerName, String toolName, double money,
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
-		System.out.println("You chose to go through the Front Door");
+		System.out.println("\nYou chose to go through the Front Door.\n");
 		delaySpeech(3);
 		System.out.println(partnerName + ": This is it, let's go!");
 		delaySpeech(3);
@@ -168,6 +170,7 @@ public class BankRobberyGame {
 			} else if (Character.toUpperCase(inputEntranceChoice) == 'B') {
 				System.out.println("YOU: EVERYONE PUT YOUR HANDS DOWN");
 				delaySpeech((long)1.5);
+				intimidate -= 1;
 				System.out.println(partnerName + " looks at you weirded out.");
 				System.out.println(partnerName + "EVERYONE PUT YOUR HANDS UP!");
 				break;
@@ -181,7 +184,10 @@ public class BankRobberyGame {
 		}
 		System.out.println(partnerName + ": THIS IS A ROBBERY");
 		delaySpeech((long)0.1);
-    	if(statCheckCalculator(intimidate,0.20)) money += 25000;
+    	if(statCheckCalculator(intimidate,0.20)) {
+			money += 25000;
+			System.out.println("Successfully Intimidated.");
+		}
     	System.out.println("Both of you go to the teller, pointing your guns.");
 		System.out.println("Do you: \nA. Yell at bank teller\nB. Break through door");
 		char inputTellerChoice = '~';
@@ -206,7 +212,7 @@ public class BankRobberyGame {
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
 		
-		System.out.println("You chose to yell at the bank teller.");
+		System.out.println("\nYou chose to yell at the bank teller.\n");
 		
 		
 		System.out.println("You kick the door open and heads towards the Bank Teller pointing his gun at him.");
@@ -239,7 +245,7 @@ public class BankRobberyGame {
 			delaySpeech(2);
 			System.out.println("YOU: FINALLY! GET INSIDE AND STAY RIGHT THERE.");
 			delaySpeech(3);
-			System.out.println("You takes out his bag and collects money from the vault.");
+			System.out.println("You take out your bag and collect money from the vault.");
 			delaySpeech(3);
 			money += 190000;
 			System.out.println("YOU: OK, Got the dough. Lets go.");
@@ -278,7 +284,7 @@ public class BankRobberyGame {
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
 		
-		System.out.println("You chose to break through the door");
+		System.out.println("\nYou chose to break through the door.\n");
 		
 		System.out.println("You kick the door open and heads towards the Bank Teller pointing his gun at him.");
 		delaySpeech(3);
@@ -321,10 +327,12 @@ public class BankRobberyGame {
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
 		
-		System.out.println("You are sneaking through the back door with partner");
-		delaySpeech(4);
+		System.out.println("\nYou are sneaking through the back door with partner.\n");
+		
+		delaySpeech(3);
 		System.out.println(partnerName + ": Watch out for the cameras, let me disable them");
-		// game here maybe
+		delaySpeech(1);
+		slowType("...",500);
 		System.out.println(partnerName + ": we cracked it. we don't " +
 						   "have much time, let's go.");
 		delaySpeech(3);
@@ -333,7 +341,7 @@ public class BankRobberyGame {
 		System.out.println(partnerName + ": grab some money and let's get out of here.");
 		delaySpeech(3);
 		money += 200000;
-		System.out.println("You think to yourself if \nA. going up the vent \nor \nB. going back up the stairs is better?: ");
+		System.out.println("You think to yourself if \nA. going up the vent \nor \nB. going back up the stairs\nis better?: ");
 		char inputExitChoice = charReader.next().charAt(0);
 		
 		if (Character.toUpperCase(inputExitChoice) == 'A') {
@@ -350,12 +358,12 @@ public class BankRobberyGame {
 		
 		money -= (money * 0.02);
 		
-		System.out.println("You chose to go up the vent.");
+		System.out.println("\nYou chose to go up the vent.\n");
 		
 		
-		System.out.println("PARTNER: alright! shhh.");
+		System.out.println(partnerName + ": alright. shhh.");
 		delaySpeech(2);
-        System.out.println("PARTNER: in here.");
+        System.out.println(partnerName + ": in here.");
 		
         if(statCheckCalculator(sneak,0.20)) {
 			System.out.println("You successfully sneaked.");
@@ -378,7 +386,7 @@ public class BankRobberyGame {
 		delaySpeech(2);
         System.out.println("PARTNER: Where do we go now?");
 		delaySpeech(3);
-		System.out.println("You can run up front to jump off the roof into some bushes, or climb down the side.");
+		System.out.println("You can:\nA. run up front to jump off the roof into some bushes \nor \nB. climb down the side.");
 		char inputRoofChoice = charReader.next().charAt(0);
 		if (Character.toUpperCase(inputRoofChoice) == 'A') {
 			jumpFrontDown(partnerName, toolName, money, intellect, strength, sneak, intimidate);
@@ -395,7 +403,7 @@ public class BankRobberyGame {
 		
 		money -= (money * 0.10);
 		
-		System.out.println("You chose to jump off the front of the building");
+		System.out.println("\nYou chose to jump off the front of the building.\n");
 		
 		System.out.println("You notify your getaway driver.");
 		delaySpeech(2);
@@ -404,8 +412,9 @@ public class BankRobberyGame {
 		System.out.println("Both of you guys jump off and land in the bushes.");
 		delaySpeech(2);
 		System.out.println(partnerName +": AHHH");
-		delaySpeech(2);
-		System.out.println(partnerName + "I think I injured my leg.");
+		slowType("...", 150)
+		delaySpeech(3);
+		System.out.println(partnerName + ": I think I injured my leg.");
 		delaySpeech(2);
 		System.out.println("You help your partner into the front seat of the car.");
 		delaySpeech(2);
@@ -423,7 +432,7 @@ public class BankRobberyGame {
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
 		money -= 0;
-		System.out.println("You chose to climb down the side of the building");
+		System.out.println("\nYou chose to climb down the side of the building.\n");
 		delaySpeech(2);
 		System.out.println("You notify your getaway driver.");
 		delaySpeech(2);
@@ -439,7 +448,7 @@ public class BankRobberyGame {
 									   int intellect, int strength, int sneak, int intimidate) {
 		Scanner charReader = new Scanner(System.in);
 		
-		System.out.println("You chose to go up the stairs");
+		System.out.println("\nYou chose to go up the stairs.\n");
 		
 		money -= 0;
 		
@@ -481,7 +490,7 @@ public class BankRobberyGame {
 		
 		money -= (money * 0.03);
 		
-		System.out.println("You chose to shoot the guard.");
+		System.out.println("\nYou chose to shoot the guard.\n");
 	
         System.out.println("You hit one of the guards, but your partner misses");
 		delaySpeech(2);
@@ -500,6 +509,8 @@ public class BankRobberyGame {
 		Scanner charReader = new Scanner(System.in);
 		
 		money -= (money * 0.00);
+		
+		System.out.println("\nYou chose to talk with the guard.\n");
 		
 		System.out.println(partnerName + ": We're not from here. We got lost.");
 		delaySpeech(2);
@@ -597,14 +608,15 @@ public class BankRobberyGame {
 	public static double stairsOptionGame(int intellect, double money){
         Scanner charReader = new Scanner(System.in);
         
-        delaySpeech((long)0.5); 
-        System.out.println("Alright!");
-        delaySpeech((long)1.250); 
-        System.out.println("Let's get moving.");
-        delaySpeech(1);
-        slowType("Hold on. Let me check ...\nDamn!\nThey activated an alarm", 120);
-        delaySpeech((long)1.25); 
-        slowType("Okay...Okay...\nShut\nIt\nDown\nNow!!!\n", 150);
+//        delaySpeech(1); 
+//        System.out.println("Alright!");
+//        delaySpeech(1); 
+//        System.out.println("Let's get moving.");
+//        delaySpeech(1);
+//        slowType("Hold on. Let me check ...\nDamn!\nThey activated an alarm", 120);
+//        delaySpeech(2); 
+//        slowType("Okay...Okay...\nShut\nIt\nDown\nNow!!!\n", 150);
+		slowType("Initializing...\nNODUS", 150);
         
         // Array holding strings for hang-man type game.
         String[] gameWords = {"Laundrette", "Flukas", "Dreams", "Thief",
@@ -714,9 +726,17 @@ public class BankRobberyGame {
     public static void slowType(String s, int slowDelay) {
        for(int i = 0; i < s.length(); i++) {
            System.out.print(s.charAt(i));
-           delaySpeech(slowDelay);
+           delaySpeechMilli(slowDelay);
        }
        System.out.println();
        
    }
+    public static void delaySpeechMilli(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+            Thread.currentThread().interrupt(); // Restore interrupted status
+        }
+    }
 }
