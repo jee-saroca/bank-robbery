@@ -25,6 +25,7 @@ public class BackDoorRobbery {
 		//delaySpeech(4)
 		System.out.println(partnerName + ": grab some money and let's get out of here.");
 		//delaySpeech(4)
+		money += 200000;
 		System.out.println("You think to yourself if \nA. going up the vent \nor \nB. going back up the stairs is better?: ");
 		char inputExitChoice = charReader.next().charAt(0);
 		if (Character.toUpperCase(inputExitChoice) == 'A') {
