@@ -103,12 +103,23 @@ public class BankRobberyGame {
 		charReader.close(); // not necessary for this project bc it's so small, but good practice
 	}
 	
-		public static void delaySpeech(int duration) { // This needs to int
+	public static void delaySpeech(long duration) { // This needs to int
 		try {
 			Thread.sleep(duration * 1000); // sleep uses milliseconds, so converts seconds to milli-
 		}
 		catch (Exception e) { // need this or else it causes errors
 			System.out.println(e);
 		}
+	}
+	public static boolean StatCheckCalculator(int multiplier, double percent) {
+		double successChance = multiplier * percent; // success is based on the skill multiplier and base chance of working
+		
+		System.out.println(successChance);
+		
+		double randomNum = Math.random();
+		
+		System.out.println(randomNum);
+		
+		return (randomNum < successChance); // if the randomNum 0-99 is less than successChance, the skill check passes true
 	}
 }
