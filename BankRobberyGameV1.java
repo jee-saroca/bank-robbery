@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class BankRobberyGame {
+public class BankRobberyGameV1 {
 	public static void main(String[] args) {
 		// STATS
 		int intellect = 1;
