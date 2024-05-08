@@ -8,7 +8,7 @@ public class BankRobberyGameV2 {
 		int intimidate = 1;
 		double money = 0;
 		Scanner charReader = new Scanner(System.in);
-		
+
 		// INTRODUCTION
 		System.out.println("DRIVER: Hey boss, where will our next score be?");
 		delaySpeech(2); // delay is 2 seconds
@@ -111,13 +111,13 @@ public class BankRobberyGameV2 {
 		} else if (Character.toUpperCase(inputEntranceChoice) == 'B') {
 			money = backDoorRobbery(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		} else {
-			System.out.println("You choose a viable option, so you are" +
+			System.out.println("You didn't choose a viable option, so you are" +
 							  " taking the front entrance.");
 			money = frontDoorRobbery(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		}
 		charReader.close(); // not necessary for this project bc it's so small, but good practice
 		
-		System.out.println("YOU STOLE $" + money + "!");
+		System.out.println("YOU STOLE $" + (int) money + "!");
 		if (money > 0)
 		System.out.println("CONGRATS!");
 	}
@@ -342,14 +342,17 @@ public class BankRobberyGameV2 {
 		delaySpeech(3);
 		money += 200000;
 		System.out.println("You think to yourself if \nA. going up the vent \nor \nB. going back up the stairs\nis better?: ");
-		char inputExitChoice = charReader.next().charAt(0);
 		
+		char inputExitChoice = '~';
 		while (Character.toUpperCase(inputExitChoice) != 'A' ||
 			  Character.toUpperCase(inputExitChoice) != 'B') {
+			inputExitChoice = charReader.next().charAt(0);
 			if (Character.toUpperCase(inputExitChoice) == 'A') {
 				money = throughVents(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else if (Character.toUpperCase(inputExitChoice) == 'B') {
 				money = throughStairs(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else {
 				System.out.println("That isn't A or B");
 			}
@@ -392,14 +395,17 @@ public class BankRobberyGameV2 {
         System.out.println("PARTNER: Where do we go now?");
 		delaySpeech(3);
 		System.out.println("You can:\nA. run up front to jump off the roof into some bushes \nor \nB. climb down the side.");
-		char inputRoofChoice = charReader.next().charAt(0);
 		
+		char inputRoofChoice = '~';
 		while (Character.toUpperCase(inputRoofChoice) != 'A' ||
 			  Character.toUpperCase(inputRoofChoice) != 'B') {
+			inputRoofChoice = charReader.next().charAt(0);
 			if (Character.toUpperCase(inputRoofChoice) == 'A') {
 				money = jumpFrontDown(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else if (Character.toUpperCase(inputRoofChoice) == 'B') {
 				money = climbDownSide(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else {
 				System.out.println("That isn't A or B");
 			}
@@ -461,7 +467,7 @@ public class BankRobberyGameV2 {
 		
 		System.out.println("\nYou chose to go up the stairs.\n");
 		
-		money -= 0;
+		money -= (money * 0);
 		
 		System.out.println(partnerName + ": Alright! Let's get out of here.");
 		delaySpeech(3);
@@ -485,14 +491,17 @@ public class BankRobberyGameV2 {
 		delaySpeech((long)0.5);
 		System.out.println("You quickly have to decide whether you will:"
 						  + "\nA. Shoot at them\nB. Talk with them");
-		char inputOutsideChoice = charReader.next().charAt(0);
 		
+		char inputOutsideChoice = '~';
 		while (Character.toUpperCase(inputOutsideChoice) != 'A' ||
 			  Character.toUpperCase(inputOutsideChoice) != 'B') {
+			inputOutsideChoice = charReader.next().charAt(0);
 			if (Character.toUpperCase(inputOutsideChoice) == 'A') {
 				money = shootTheGuard(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else if (Character.toUpperCase(inputOutsideChoice) == 'B') {
 				money = talkWithGuard(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+				break;
 			} else {
 				System.out.println("That isn't A or B");
 			}
@@ -744,7 +753,7 @@ public class BankRobberyGameV2 {
        for(int i = 0; i < s.length(); i++) {
            System.out.print(s.charAt(i));
            delaySpeechMilli(slowDelay);
-       }
+	   }
        System.out.println();
        
    }
