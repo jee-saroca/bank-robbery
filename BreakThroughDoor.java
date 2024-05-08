@@ -53,6 +53,6 @@ public class BreakThroughDoor {
 		//delaySpeech(2);
         System.out.println("YOU: Ok, meet you there.");
 		System.out.println("You meet up with " + partnerName +
-						  " and escape to the car.")
+						  " and escape to the car.");
 	}
 }
