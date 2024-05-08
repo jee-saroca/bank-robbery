@@ -345,9 +345,9 @@ public class BankRobberyGame {
 		char inputExitChoice = charReader.next().charAt(0);
 		
 		if (Character.toUpperCase(inputExitChoice) == 'A') {
-			throughVents(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+			money = throughVents(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		} else if (Character.toUpperCase(inputExitChoice) == 'B') {
-			throughStairs(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+			money = throughStairs(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		}
 		return money;
 	}
@@ -389,9 +389,9 @@ public class BankRobberyGame {
 		System.out.println("You can:\nA. run up front to jump off the roof into some bushes \nor \nB. climb down the side.");
 		char inputRoofChoice = charReader.next().charAt(0);
 		if (Character.toUpperCase(inputRoofChoice) == 'A') {
-			jumpFrontDown(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+			money = jumpFrontDown(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		} else if (Character.toUpperCase(inputRoofChoice) == 'B') {
-			climbDownSide(partnerName, toolName, money, intellect, strength, sneak, intimidate);
+			money = climbDownSide(partnerName, toolName, money, intellect, strength, sneak, intimidate);
 		}
 		
 		return money;
