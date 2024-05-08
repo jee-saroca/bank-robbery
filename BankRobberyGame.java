@@ -412,7 +412,7 @@ public class BankRobberyGame {
 		System.out.println("Both of you guys jump off and land in the bushes.");
 		delaySpeech(2);
 		System.out.println(partnerName +": AHHH");
-		slowType("...", 150)
+		slowType("...", 150);
 		delaySpeech(3);
 		System.out.println(partnerName + ": I think I injured my leg.");
 		delaySpeech(2);
