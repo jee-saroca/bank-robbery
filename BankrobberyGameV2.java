@@ -662,7 +662,7 @@ public class BankRobberyGameV2 {
             if (intellect >= 7) {
                 addedTries += 2;
                 revealCharacters(wordHidden, randomWord, addedTries);
-            } else if (intellect >= 2 && intellect >= 6) {
+            } else if (intellect >= 2 && intellect <= 6) {
                 addedTries += 1;
             } else {
                 delaySpeech((long)1.25);
