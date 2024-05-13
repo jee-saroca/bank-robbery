@@ -1,0 +1,14 @@
+TO DO LIST
+
+If choosing the wrong option, you just die somehow (at the beginning)
+
+Steroids murder scene
+
+Noise-Cancellation Boots death scene √ (updated ThroughVents.java)
+
+Bigger Gun with Skill Check scene
+
+--help mode
+
+Finalize BankRobberyGameV3
+
