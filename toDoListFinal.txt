@@ -6,7 +6,7 @@ Steroids murder scene
 
 Noise-Cancellation Boots death scene √ (updated ThroughVents.java)
 
-Bigger Gun with Skill Check scene
+Bigger Gun with Skill Check scene √ (uploaded ShootTheGuard.java)
 
 --help mode
 
