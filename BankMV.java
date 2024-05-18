@@ -1,7 +1,3 @@
-// Add help -help mode stuff. Every story part method should include displayhelp() integration
-// Fixed - Error when you get to stairOptionGame having nerd and usb wont do anything.
-
-
 import java.util.Scanner;
 public class BankMV {
     // This constant tells us when the prgram started.
@@ -15,13 +11,15 @@ public class BankMV {
 		int sneak = 1;
 		int intimidate = 1;
 		double money = 0;
+        
+        boolean helpMode = false;
 		
         Scanner charReader = new Scanner(System.in);
         
         // Game Start: Tells you what mode you have selected
         if(args.length != 0 && args[0].equals("-help")) {
             displayHelp();
-            boolean helpMode = true;
+            helpMode = true;
         } else {
             delaySpeech(500);
             slowType("\n\fYou have Selected \"Normal Mode\" ", 115);
@@ -43,12 +41,15 @@ public class BankMV {
 		delaySpeech(1000);
 		
 		// PARTNER CHOICE Method here: User picks a partner, gets stored in var partner
+        // Help mode gets called if user selected it.
+        helpPartner(helpMode);
         String partnerName = partnerChoice(charReader, intellect, strength, sneak, intimidate);
         System.out.println("\nChosen Partner: " + partnerName + "\n");
         
         
         // Tool Choice
         delaySpeech(2);
+        helpTool(helpMode, partnerName);
 		System.out.println("DRIVER: ... Alright then, what tool do we need?");
         String toolName = toolChoice(charReader, intellect, strength, sneak, intimidate);
         System.out.println("\nChosen Tool: " + toolName);
@@ -59,21 +60,23 @@ public class BankMV {
 		System.out.println("\nYour driver takes you to the bank.");
 		delaySpeech(3);
 		System.out.println("You stake out the place to look for an opening.");
-		delaySpeech(4);
+        // Help mode tour guide gets increasingly mad if you go against her choices.
+        helpEntrance(helpMode, toolName, partnerName);
+		delaySpeech(50);
 		System.out.println("You think in your head that you can enter through " 
 						   + "the:\nA. Front Door\nB. Back Door");
 		char inputEntranceChoice = charReader.next().charAt(0);
 		if (Character.toUpperCase(inputEntranceChoice) == 'A') {
             money = frontDoorRobbery(charReader, partnerName, toolName, money, intellect, strength, 
-                                     sneak, intimidate);
+                                     sneak, intimidate, helpMode);
 		} else if (Character.toUpperCase(inputEntranceChoice) == 'B') {
 			money = backDoorRobbery(charReader, partnerName, toolName, money, intellect, strength,
-                                    sneak, intimidate);
+                                    sneak, intimidate, helpMode);
 		} else {
 			System.out.println("You didn't choose a viable option, so you are" +
 							   " taking the front entrance.");
 			money = frontDoorRobbery(charReader, partnerName, toolName, money, intellect, strength,
-                                     sneak, intimidate);
+                                     sneak, intimidate, helpMode);
 		}
 		charReader.close(); // not necessary for this project bc it's so small, but good practice
 		
@@ -87,13 +90,14 @@ public class BankMV {
     
     // Method for the front door robbery
     public static double frontDoorRobbery(Scanner charReader, String partnerName, String toolName,                                                   double money, int intellect, int strength, 
-                                          int sneak, int intimidate) {
+                                          int sneak, int intimidate, boolean helpMode) {
         System.out.println("\nYou chose to go through the Front Door.\n");
         delaySpeech(3);
         System.out.println(partnerName + ": This is it, let's go!");
         delaySpeech(3);
         System.out.println("You bust through the door with " + partnerName);
         delaySpeech((long)0.25);
+        helpFrontDoor(helpMode);
         System.out.println("What do you say?:\nA. EVERYONE PUT YOUR HANDS UP\nB. "
                             + "EVERYONE PUT YOUR HANDS DOWN\nC. GET ON THE GROUND");
         char inputEntranceChoice = '~';
@@ -129,6 +133,7 @@ public class BankMV {
             System.out.println("Successfully Intimidated.\n");
         }
         System.out.println("Both of you go to the teller, pointing your guns.");
+        helpTellerOption(helpMode);
         System.out.println("Do you: \nA. Yell at bank teller\nB. Break through door");
         char inputTellerChoice = '~';
         while (Character.toUpperCase(inputTellerChoice) != 'A' ||
@@ -258,7 +263,8 @@ public class BankMV {
     }
     
     // Method for the Back door approach
-    public static double backDoorRobbery(Scanner charReader, String partnerName, String toolName, double                                            money, int intellect, int strength, int sneak, int intimidate) {
+    public static double backDoorRobbery(Scanner charReader, String partnerName, String toolName, double                                            money, int intellect, int strength, int sneak, int intimidate,
+                                         boolean helpMode) {
         System.out.println("\nYou are sneaking through the back door with partner.\n");
     
         delaySpeech(3);
@@ -273,7 +279,8 @@ public class BankMV {
         System.out.println(partnerName + ": Grab some money and let's get out of here.");
         delaySpeech(3);
         money += 200000;
-        System.out.println("You think to yourself if \nA. going up the vent \nOr \nB. going back up the"                           + " stairs\nis better?: ");
+        helpBackDoor(helpMode);
+        System.out.println("You think to yourself if \nA. going up the vent \nOr \nB. going back up the"                           + " stairs is better?: ");
     
         char inputExitChoice = '~';
         while (Character.toUpperCase(inputExitChoice) != 'A' ||
@@ -281,11 +288,11 @@ public class BankMV {
             inputExitChoice = charReader.next().charAt(0);
             if (Character.toUpperCase(inputExitChoice) == 'A') {
                 money = throughVents(charReader, partnerName, toolName, money, intellect, strength,
-                                     sneak, intimidate);
+                                     sneak, intimidate, helpMode);
                 break;
             } else if (Character.toUpperCase(inputExitChoice) == 'B') {
                 money = throughStairs(charReader, partnerName, toolName, money, intellect, strength,
-                                      sneak, intimidate);
+                                      sneak, intimidate, helpMode);
                 break;
             } else {
                 System.out.println("That isn't A or B");
@@ -296,7 +303,9 @@ public class BankMV {
 
     // Method for vent option
     public static double throughVents(Scanner charReader, String partnerName, String toolName, double money,
-                                      int intellect, int strength, int sneak, int intimidate) {
+                                      int intellect, int strength, int sneak, int intimidate, 
+                                      boolean helpMode) {
+        
         money -= (money * 0.02);
     
         System.out.println("\nYou chose to go up the vent.\n");
@@ -326,7 +335,9 @@ public class BankMV {
         delaySpeech(2);
         System.out.println("PARTNER: Where do we go now?");
         delaySpeech(3);
-        System.out.println("You can:\nA. run up front to jump off the roof into some bushes \nor \nB. climb                       down the side.");
+        helpVentOption(helpMode);
+        System.out.println("You can:\nA. run up front to jump off the roof into some bushes \nor"
+                           + "\nB. climb down the side.");
     
         char inputRoofChoice = '~';
         while (Character.toUpperCase(inputRoofChoice) != 'A' ||
@@ -395,7 +406,8 @@ public class BankMV {
 
     // method for using the stairs option
     public static double throughStairs(Scanner charReader, String partnerName, String toolName, double money,
-                                       int intellect, int strength, int sneak, int intimidate) {
+                                       int intellect, int strength, int sneak,
+                                       int intimidate, boolean helpMode) {
 		
 		System.out.println("\nYou chose to go up the stairs.\n");
 		
@@ -413,8 +425,8 @@ public class BankMV {
         System.out.println(partnerName + ": We have to hack in, help me solve it.");
 		delaySpeech(3);
 		money = stairsOptionGame(charReader, partnerName, toolName, money, intellect, 
-                                 strength, sneak, intimidate);
-		System.out.println(partnerName + ": Alright. Let's get out of here");
+                                 strength, sneak, intimidate, helpMode);
+		//System.out.println(partnerName + ": Alright. Let's get out of here");
 		delaySpeech(3);
 		System.out.println("Both of you make it out the back door of the building.");
 		delaySpeech(3);
@@ -422,6 +434,7 @@ public class BankMV {
 		delaySpeech(2);
 		System.out.println("You turn around to see two guards looking at you from the door.");
 		delaySpeech((long)0.5);
+        helpGuardOption(helpMode);
 		System.out.println("You quickly have to decide whether you will:"
 						  + "\nA. Shoot at them\nB. Talk with them");
 		
@@ -566,8 +579,11 @@ public class BankMV {
         System.out.println();
     }
     
-    public static double stairsOptionGame(Scanner charReader, String partnerName, String toolName, double                                         money, int intellect, int strength, int sneak, int intimidate){
-		slowType("Initializing...\nNODUS", 150);
+    public static double stairsOptionGame(Scanner charReader, String partnerName, String toolName, 
+                                          double money, int intellect, int strength, int sneak, 
+                                          int intimidate, boolean helpMode) {
+		
+        slowType("Initializing...\nNODUS", 150);
         
         // Array holding strings for hang-man type game.
         String[] gameWords = {"Laundrette", "Flukas", "Dreams", "Thief",
@@ -600,10 +616,12 @@ public class BankMV {
                 addedTries += 2;
             } else {
                 delaySpeech(1250);
-                slowType("We dont got anyone smart enough to crack it...I guess I'll try.", 150);
+                slowType(partnerName + ": "
+                         + "We dont got anyone smart enough to crack it...I guess I'll try.", 150);
             }
+            helpHangMan(helpMode);
 
-            slowType("It looks like we need to guess letters to form a word.", 100);
+            slowType(partnerName + ": " + "It looks like we need to guess letters to form a word.", 100);
             char userGuess = charReader.next().charAt(0);
             
             int attempts = wordLength + 2 + addedTries; // Maximum number of attempts
@@ -611,11 +629,12 @@ public class BankMV {
             //  This loop allows the game to go through many attempts
             while (attempts > 0) {
                 if (randomWord.indexOf(userGuess) != -1) {
-                    // Correct guess: Update wordHidden
+                    // Correct guess: Update wordHidden, checks if guess is within word
+                    // After it goes through the word to check what index the corrrect guess is at
                     for (int i = 0; i < randomWord.length(); i++) {
                         if (randomWord.charAt(i) == userGuess) {
                             wordHidden = wordHidden.substring(0, i) + userGuess
-                                    + wordHidden.substring(i + 1);
+                                        + wordHidden.substring(i + 1);
                         }
                     }
                     randomGameDialog(true);
@@ -628,13 +647,17 @@ public class BankMV {
 
                 if (wordHidden.equals(randomWord)) {
                     // If letters are guessed correctly, then it breaks the loop
-                    System.out.println("Alright! We got it! Let's get out of here");
+                    System.out.println(partnerName + ": " + "Alright! We got it! Let's get out of here");
                     break;
 				} else {
 					money -= (money * 0.05);
 				}
+                // Gets user input if attempts over zero
                 if (attempts > 0) {
                     userGuess = charReader.next().charAt(0);
+                }
+                else  {
+                    System.out.println(partnerName + ": " + "Lets just dip man, I cant figure this.");
                 }
             }
 
@@ -773,22 +796,128 @@ public class BankMV {
         return partnerName;
     }
     
-    //Method for -help mode
+    // All Methods for -help mode
 
     public static void displayHelp() {
         delaySpeech(1500);
-        slowType("You Picked the \"-help\" mode", 150);
+        slowType("\n\nYou Picked the \"-help\" mode", 40);
         delaySpeech(1000);
-        slowType("Think of this as a \"Guided Experience\"", 150);
+        slowType("Think of this as a \"Guided Experience\"", 40);
         delaySpeech(1000);
-        slowType("I will be your tour guide today. My name is Dandy", 150);
-        delaySpeech(2500);
-        slowType("Loading...\f\f\f", 150);
+        slowType("I will be your tour guide today. My name is Dandy. "
+                 + "Today we will be robbing a bank, hopefully ;)", 70);
+        delaySpeech(1500);
+        slowType("Loading...\f\f\f", 70);
     }
+    
+    public static void helpPartner(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: Here we are given a choice of partner.", 50);
+            slowType("Dandy: If you pick the nerd, you will get +4 added intellect. "
+                     + "Additionally, they might come in handy for a future game ;)", 50);
+            slowType("Dandy: Choosing the sly might be helpful if you want "
+                     + "to be sneaky, or climb through vents", 50);
+            delaySpeech(1000);
+            slowType("Dandy: If you pick the brute, you will get +4 added strength. "
+                     + "If I had to pick, I would choose the NERD or BRUTE", 50);
+        }
+    }
+    
+    public static void helpTool(boolean helpMode, String partnerName) {
+        if (helpMode) {
+            if (!partnerName.equals("Nerd") && !partnerName.equals("Brute")) {
+                slowType("Dandy: You didn't choose my recommendation last time, "
+                         + "hopefully you pick the right choice here. :]", 80);
+            }
+
+            delaySpeech(1000);
+            slowType("Dandy: We are given a choice of tool.", 50);
+            slowType("Dandy: If you pick the Doohickey USB, you might have "
+                 + "an easier time when choosing to go upstairs.", 50);
+            delaySpeech(1000);
+            slowType("Dandy: I would recommend picking the USB.", 50);
+        }
+    }
+
+    
+    public static void helpEntrance(boolean helpMode, String toolName, String partnerName) {
+        if (helpMode) {
+            delaySpeech(1000);
+            slowType("Dandy: We are given two options. Front or back door approach. "
+                    + "The front door will get rowdy, while the back door will be quiet.", 40);
+            slowType("Dandy: I would recommend the back door option.", 50);
+            
+            // This loop is nested, as if not, it would show up even if you didnt choose -help
+            // This statement is for if the user didnt choose Dandys recommendations
+            if (!partnerName.equals("Nerd") && !partnerName.equals("Brute") 
+                                        && !toolName.equals("Doohickey USB")) {
+            slowType("Dandy: Since you don't like my choices, pick what you want here :( ", 80);
+            delaySpeech(1000);
+            }
+        }
+    }
+    
+    public static void helpFrontDoor(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: You can either yell out for people to put their hands up "
+                     + "or to put hands down, or to get on the ground", 80);
+            slowType("Dandy: Since you picked the front door option, I would say to "
+                     + "tell them to put their hands up.", 80);
+        }
+    }
+    
+       public static void helpTellerOption(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: Here you can yell at the teller, or break through the door. ", 80);
+            slowType("Dandy: Yelling at the teller results in having to pick a lock. "
+                     + "Breaking through the door results in intimidating the teller.", 80);
+        }
+    }
+        public static void helpBackDoor(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: Here we are given two options: "
+                     + "Go up the vent or up the stairs.", 50);
+            delaySpeech(1000);
+            slowType("Dandy: If you go up the stairs you will encounter a hang-man game", 80);
+            slowType("Dandy: Going up the vent might be the safer option.", 80);
+        }
+    }
+    
+    public static void helpHangMan(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: A tip I could give you is that the first letter is a capital. "
+                     + "Try inputing vowels(a,e,i,o,u), they appear a lot in the possible words. ", 50);
+
+        }
+    }
+    
+    public static void helpGuardOption(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: At this point just shoot them. Its a safer option", 80);
+
+        }
+    }
+    
+    public static void helpVentOption(boolean helpMode) {
+        if (helpMode){
+            delaySpeech(1000);
+            slowType("Dandy: We can jump off the roof, or climb down. "
+                     + "If you jump off you might hurt yourself. Maybe climb down.", 50);
+
+        }
+    }
+    
+    
     
     // Method for the first part of the game: Prelude
     public static void prelude(Scanner charReader) {
-               String[] film = new String[19];
+        String[] film = new String[19];
          
          film[0]   = "0123456789012345678901234567890\n" +
                      "|        -  --                |\n" +
