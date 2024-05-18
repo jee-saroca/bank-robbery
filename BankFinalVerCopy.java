@@ -367,9 +367,11 @@ public class BankFinalVer {
 							   + "\nor \nB. climb down the side.");
 			char inputRoofChoice = charReader.next().charAt(0);
 			if (Character.toUpperCase(inputRoofChoice) == 'A') {
-				System.out.println("You chose to jump off the front of the building");
+				money = jumpFrontDown(charReader, partnerName, toolName, money, intellect, 
+                                          strength, sneak, intimidate);
 			} else if (Character.toUpperCase(inputRoofChoice) == 'B') {
-				System.out.println("You chose to climb down the side of the building");
+				money = climbDownSide(charReader, partnerName, toolName, money, intellect, strength, 
+                                          sneak, intimidate);
 			}
 		} else {
 			System.out.println("As you walk through the vents, " +
@@ -392,25 +394,9 @@ public class BankFinalVer {
 				}
 			}
 		}
-       char inputRoofChoice = '~';
-        while (Character.toUpperCase(inputRoofChoice) != 'A' ||
-               Character.toUpperCase(inputRoofChoice) != 'B') {
-               inputRoofChoice = charReader.next().charAt(0);
-                if (Character.toUpperCase(inputRoofChoice) == 'A') {
-                    money = jumpFrontDown(charReader, partnerName, toolName, money, intellect, 
-                                          strength, sneak, intimidate);
-                    break;
-                } else if (Character.toUpperCase(inputRoofChoice) == 'B') {
-                    money = climbDownSide(charReader, partnerName, toolName, money, intellect, strength, 
-                                          sneak, intimidate);
-                    break;
-                } else {
-                    System.out.println("That isn't A or B");
-                }
-        	}
 
         return money;
-    	}
+    }
     
     // jump method
     public static double jumpFrontDown(Scanner charReader, String partnerName, String toolName, double money,
